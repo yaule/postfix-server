@@ -16,6 +16,15 @@ docker run -it --rm -e DOMAIN_NAME=$DOMAIN_NAME -e SELECTOR_NAME=$DKIMDOMAIN -e 
 
 look docker run logs, set DKIM / SPF record
 
+
+`DKIMDOMAIN`._domainkey.`DOMAIN_NAME`  TXT  ` v=DKIM1; h=sha256; k=rsa; t=s; p=`
+
+selfspf.`DOMAIN_NAME` A  `your IPv4`
+
+selfspf.`DOMAIN_NAME` AAAA  `your IPv6`
+
+`DOMAIN_NAME` TXT `selfspf.DOMAIN_NAME TXT v=spf1 include:selfspf.DOMAIN_NAME ~all`
+
 # test
 
 in docker,
