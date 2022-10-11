@@ -10,7 +10,7 @@ easy to use.
 DOMAIN_NAME=youdomain.com
 DKIMDOMAIN=email
 
-docker run -it --rm -e DOMAIN_NAME=$DOMAIN_NAME -e SELECTOR_NAME=$DKIMDOMAIN -e DKIMDOMAIN=$DKIMDOMAIN --name sendmail-dkim --hostname $DOMAIN_NAME -v dkimkey:/etc/dkimkeys -p 25:25 sendmail-dkim
+docker run -it --rm -e DOMAIN_NAME=$DOMAIN_NAME -e SELECTOR_NAME=$DKIMDOMAIN -e DKIMDOMAIN=$DKIMDOMAIN --name sendmail-dkim --hostname $DOMAIN_NAME -v dkimkey:/etc/dkimkeys -p 25:25 kasen/postfix-server
 ```
 # set DNS 
 
