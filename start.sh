@@ -55,6 +55,10 @@ tee $DKIMKEY_PATH/trustedhosts <<EOF
 10.0.0.0/8
 172.16.0.0/12
 192.168.0.0/16
+[::ffff:127.0.0.0]/104
+[::1]/128
+fc00::/7
+fec0::/10
 $DOMAIN_NAME
 *.$DOMAIN_NAME
 EOF
@@ -89,7 +93,7 @@ SPF_IPV6=$(curl -s -L -6 ip.sb)
 if [ -n "$SPF_IPV6" ];then
     echo -n "set spf DNS: ${TC}$SPFDOMAIN.$DOMAIN_NAME AAAA $(curl -L -s -6 ip.sb)${NC} \n"
 fi
-echo -n "set spf DNS: ${TC}$SPFDOMAIN.$DOMAIN_NAME TXT v=spf1 include:$SPFDOMAIN.$DOMAIN_NAME ~all${NC} \n"
+echo -n "set spf DNS: ${TC}$DOMAIN_NAME TXT v=spf1 include:$SPFDOMAIN.$DOMAIN_NAME ~all${NC} \n"
 
 # test
 echo -n "test dkim command: ${TC}opendkim-testkey -v -v${NC} \n"
