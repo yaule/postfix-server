@@ -97,6 +97,8 @@ if [ -n "$SPF_IPV6" ];then
 fi
 echo -n "set spf DNS: ${TC}$DOMAIN_NAME TXT v=spf1 include:$SPFDOMAIN.$DOMAIN_NAME ~all${NC} \n"
 
+echo -n "set spf DNS: ${TC}$DOMAIN_NAME TXT v=spf1 ipv4:$(curl -L -s -4 ip.sb) ~all${NC} \n"
+
 # test
 echo -n "test dkim command: ${TC}opendkim-testkey -v -v${NC} \n"
 
