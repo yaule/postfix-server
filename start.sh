@@ -67,8 +67,10 @@ chown -R opendkim:opendkim $DKIMKEY_PATH
 
 # postfix config
 sed -i '/^mynetworks/d' /etc/postfix/main.cf
+sed -i '/^myhostname/d' /etc/postfix/main.cf
 
 tee -a /etc/postfix/main.cf<<-EOF
+myhostname = $DOMAIN_NAME
 mynetworks = 127.0.0.0/8 [::ffff:127.0.0.0]/104 [::1]/128 10.0.0.0/8 172.16.0.0/12 192.168.0.0/16 fc00::/7 fec0::/10
 smtpd_milters           = inet:127.0.0.1:8891
 non_smtpd_milters       = $smtpd_milters
