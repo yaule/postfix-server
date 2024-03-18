@@ -34,7 +34,7 @@ jobs:
           tags: |
             kasen/postfix-server:latest
             kasen/postfix-server:main
-            kasen/postfix-server:main-${{ steps.commit.outputs.short }}
+            kasen/postfix-server:main-${{ steps.meta.outputs.tags }}
             
             
             
