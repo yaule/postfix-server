@@ -105,4 +105,4 @@ echo -n "test dkim command: ${TC}opendkim-testkey -v -v${NC} \n"
 echo -n "test email command: ${TC}sendemail -o message-charset=utf-8 -t youemail@email.com -f test@$DOMAIN_NAME -m 'from test@$DOMAIN_NAME test email.' -u 'test email:\$(date)' ${NC} \n"
 
 # for run
-tail -n 0 -f /var/log/mail.log 2>/dev/null
+exec tail -n 0 -f /var/log/mail.log 2>/dev/null
