@@ -1,4 +1,4 @@
-FROM ubuntu
+FROM ubuntu:24.04
 
 LABEL maintainer="kasen@kasen.win" repository="https://github.com/yaule/postfix-server"
 
